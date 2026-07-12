@@ -1,0 +1,4 @@
+interface:
+  display_name: "Minions Pattern"
+  short_description: "Route Claude and Codex work by quota and task"
+  default_prompt: "Use $minions-pattern to route this task with adversarial review on."
