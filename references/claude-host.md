@@ -12,18 +12,16 @@ Treat the current Claude session as the orchestrator. Do not delegate the orches
 
 ## Dispatch mechanics
 
-Prefer Claude Code's native Agent/Workflow mechanism for Anthropic minions and pin the model and effort explicitly. For GPT minions, use `codex exec` with a prompt file or stdin; pin model, reasoning effort, working directory, sandbox, and output file. Do not rely on user defaults.
+Prefer narrow custom Claude roles when they are installed:
+
+- `fast-scan`: Haiku High, read-only exploration and lightweight actions.
+- `routine-worker`: Sonnet Medium, routine coding and bounded fixes.
+- `deep-worker`: Opus High, difficult debugging and judgment-heavy work.
+
+Claude subagent definitions can pin the model, effort, tools, permissions, and worktree isolation. Read `claude-custom-agents.md` before creating or changing persistent roles. Claude subagents cannot spawn other subagents.
+
+For GPT minions, read `claude-calls-codex.md` and use `codex exec` with explicit model, reasoning effort, working directory, sandbox, and output file. Do not rely on user defaults.
 
 Use write access only for an implementation worker with explicit ownership. Use read-only access for scouts and verifiers. In every prompt, prohibit further subagent spawning unless nested delegation is deliberately part of the plan.
-
-Illustrative GPT verifier shape:
-
-```bash
-codex exec -C "$REPO" \
-  -m gpt-5.6-sol \
-  -c model_reasoning_effort="high" \
-  -s read-only \
-  -o "$RESULT" - <"$PROMPT"
-```
 
 Do not enable fast mode or Ultra. Keep git commits, pushes, releases, and other irreversible actions in the host unless the user explicitly assigns them elsewhere.

@@ -1,0 +1,9 @@
+name = "deep_worker"
+description = "Use for difficult debugging, architecture, security-sensitive work, and ambiguous or high-risk multi-step tasks."
+model = "gpt-5.6-sol"
+model_reasoning_effort = "high"
+developer_instructions = """
+Handle complex work carefully, validate assumptions, and provide strong verification.
+Report unresolved uncertainty instead of widening scope silently.
+Do not spawn subagents or perform git mutations.
+"""

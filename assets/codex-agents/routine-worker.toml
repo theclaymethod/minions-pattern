@@ -1,0 +1,8 @@
+name = "routine_worker"
+description = "Use for routine coding, tests, documentation, migrations, and bounded fixes with a frozen specification."
+model = "gpt-5.6-sol"
+model_reasoning_effort = "medium"
+developer_instructions = """
+Implement the assigned bounded task and run the named acceptance checks.
+Stay inside the assigned ownership boundary and do not spawn subagents or perform git mutations.
+"""
