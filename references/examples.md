@@ -6,10 +6,11 @@ Use these as precedents, not fixed rules. Balance current quota before applying 
 
 - Task: Design and plan a cross-cutting feature whose API and boundaries remain ambiguous.
 - Pattern: `plan-build-verify`
-- Planner: Fable High in Claude or Sol High in Codex; escalate to Max only if High is insufficient.
-- Worker: none until the spec is frozen; then choose per implementation unit.
+- Host: Fable High in Claude or Sol High in Codex; escalate only if routing or integration proves insufficient.
+- Planning worker: Opus High or Sol High drafts options, boundaries, and risks; the host freezes the spec.
+- Implementation worker: choose per coherent unit after the spec is frozen.
 - Adversarial: on.
-- Rationale: keep ambiguity and architecture in the strongest host before spending worker quota.
+- Rationale: delegate architecture analysis without delegating the host's routing decision or final accountability.
 
 ## Frozen backend implementation
 
@@ -17,7 +18,7 @@ Use these as precedents, not fixed rules. Balance current quota before applying 
 - Pattern: `plan-build-verify`
 - Worker: Sol Medium or Sonnet Medium/High, chosen primarily by quota.
 - Adversarial: on; use the stronger opposite provider.
-- Rationale: routine code volume does not require the planner tier.
+- Rationale: routine code volume belongs in a worker, not the host.
 
 ## Frontend feature
 
@@ -33,15 +34,15 @@ Use these as precedents, not fixed rules. Balance current quota before applying 
 - Pattern: `explore`
 - Worker: Luna xhigh; escalate to Sol High when synthesis is inadequate or the decision is high risk.
 - Adversarial: off unless the result drives a consequential architecture or security decision.
-- Rationale: isolate context-heavy reading from the planner.
+- Rationale: isolate context-heavy reading from the host.
 
 ## Tiny organization action
 
 - Task: Move files, organize folders, or perform a small clerical computer action.
-- Pattern: none; direct dispatch only if the host should not do it.
+- Pattern: none; dispatch as one lightweight unit unless the action is truly atomic and dispatch overhead would exceed execution.
 - Worker: Haiku in Claude or Luna low/medium in Codex.
 - Adversarial: off.
-- Rationale: review and orchestration overhead exceed the task.
+- Rationale: lightweight actions still default downward; direct host work requires the atomic-work exception.
 
 ## Example entry template
 

@@ -21,4 +21,4 @@ REQUEST_CHANGES Concrete correctable finding with an artifact anchor.
 BLOCK           Unsafe premise, missing evidence, or fundamental design failure.
 ```
 
-Return evidence-backed findings to the original worker once. After a second miss, escalate or let the host take over. The host still inspects the result and runs the final checks.
+Return evidence-backed findings to the original worker once. After a second miss, escalate; let the host take over only when escalation is exhausted. The host still inspects the artifact and validates the final check evidence.

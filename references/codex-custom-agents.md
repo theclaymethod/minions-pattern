@@ -24,8 +24,10 @@ When delegating Codex work:
 - Use `fast_scan` for read-only search, exploration, dependency tracing, and evidence gathering.
 - Use `routine_worker` for clear, bounded coding, tests, documentation, migrations, and routine fixes.
 - Use `deep_worker` for difficult debugging, architecture, security-sensitive work, and ambiguous or high-risk tasks.
-- Keep intent, decomposition, integration, and the final claim in the host.
-- Keep trivial work in the host. Do not let workers spawn subagents.
+- Keep only intent, decomposition and routing, evidence integration, irreversible actions unless explicitly delegated, and the final claim in the host.
+- Delegate bounded discovery, draft planning, implementation, check execution, and review whenever practical.
+- Work directly only for a truly atomic unit whose dispatch overhead exceeds execution, a non-delegable tool/authority/context constraint, or exhausted retry and escalation; record the reason.
+- Keep depth one and do not let workers spawn subagents unless the user requests recursive delegation.
 ```
 
 ## Recommended owner override
@@ -48,4 +50,4 @@ Copy them into `~/.codex/agents/` for personal roles or `.codex/agents/` for pro
 4. Write only after the user approves the preview.
 5. Start a new task after saving so the roles load cleanly.
 
-Custom files solve model inheritance only when Codex actually selects that role. Keep simple tasks in the host, ask for bounded delegation, and avoid recursive fan-out.
+Custom files solve model inheritance only when Codex actually selects that role. Ask for bounded delegation proactively, keep one owner per coherent unit, and avoid recursive fan-out. A simple but non-atomic task should still be delegated; only the documented exceptions belong directly in the host.

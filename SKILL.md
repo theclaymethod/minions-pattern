@@ -1,11 +1,13 @@
 ---
 name: minions-pattern
-description: Route software work across Claude Code and Codex while balancing subscription quota and preserving a strong planner. Use for multi-agent planning, implementation, codebase exploration, debugging, frontend work, cross-provider delegation, optional adversarial review, Claude or Codex custom-agent setup, cross-provider command runbooks, or deciding between Fable/Opus/Sonnet/Haiku and GPT-5.6 Sol/Luna. Also use when the user asks for minions, model routing, quota-aware orchestration, task-to-pattern examples, or a Claude–Codex worker/reviewer pipeline.
+description: Route software work across Claude Code and Codex while balancing subscription quota and keeping the top-level host as a thin accountable orchestrator. Use for multi-agent planning, implementation, codebase exploration, debugging, frontend work, cross-provider delegation, optional adversarial review, Claude or Codex custom-agent setup, cross-provider command runbooks, or deciding between Fable/Opus/Sonnet/Haiku and GPT-5.6 Sol/Luna. Also use when the user asks for minions, model routing, quota-aware orchestration, task-to-pattern examples, or a Claude–Codex worker/reviewer pipeline.
 ---
 
 # Minions Pattern
 
-Keep the host responsible for intent, decomposition, integration, and the final claim. Give each coherent work unit one owner.
+Treat the top-level host as a thin control plane and direct executor of last resort. Keep only user intent, decomposition and routing decisions, integration of verified evidence, irreversible actions unless explicitly delegated, and final accountability in the host. Delegate as much bounded execution as practical, including discovery, draft planning and architecture analysis, implementation, test and check execution, and adversarial review. Give each coherent work unit one owner.
+
+The host may work a unit directly only when it is truly atomic and dispatch overhead would exceed execution, required tools, authority, or conversation context cannot be delegated safely, or the documented retry and escalation policy has been exhausted. Record the reason in the routing ledger. Default to depth-one delegation; prohibit worker fan-out unless the user deliberately requests it.
 
 ## Route progressively
 
@@ -23,7 +25,7 @@ Load only the references selected by this decision:
    - Bug or regression → [bugfix.md](references/bugfix.md)
    - Frontend or visual work → [frontend.md](references/frontend.md)
    - Provider/session handoff → [handoff.md](references/handoff.md)
-   - Tiny direct action → load no pattern
+   - Truly atomic direct action that meets a host exception → load no pattern
 4. Resolve adversarial mode:
    - `adversarial: on` → read [adversarial-review.md](references/adversarial-review.md)
    - `adversarial: off` → do not load it and do not dispatch a verifier
@@ -52,7 +54,7 @@ Output: <files changed, checks/results, risks, and unresolved questions>
 Stop: <explicit boundary>
 ```
 
-Do not accept a worker summary as proof. Inspect the artifact or diff and run relevant checks in the host, even when adversarial mode is off.
+Do not accept a worker summary as proof. The host must inspect the artifact, diff, and check evidence, and independently validate any claim material to acceptance. Delegate check execution where practical; rerun a targeted check in the host only when independent validation requires it.
 
 ## Capture user examples
 
@@ -60,4 +62,4 @@ When the user provides a task example intended as a reusable precedent, determin
 
 ## Close with a routing ledger
 
-Report the planner, worker(s), adversarial mode, verifier when enabled, provider substitutions, checks, verdict, and escalation. Keep the ledger compact.
+Report the host/orchestrator, worker(s), adversarial mode, verifier when enabled, provider substitutions, checks and evidence validated, verdict, and escalation. For every directly executed unit, include a short exception justification. Keep the ledger compact.

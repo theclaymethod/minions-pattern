@@ -1,11 +1,12 @@
 # Codex host
 
-Treat the current Codex session as the orchestrator. Do not delegate the orchestration role back to another Sol instance.
+Treat the current Codex session as a thin orchestrator and direct executor of last resort. Do not delegate final orchestration or accountability back to another Sol instance.
 
 ## Default responsibilities
 
-- Keep high-level planning, architecture, decomposition, integration, and final synthesis in Sol High.
-- Escalate planning to Sol xhigh when High proves insufficient. Reserve Max for exceptional work.
+- Keep only user intent, decomposition and routing decisions, integration of verified evidence, irreversible actions unless explicitly delegated, and final synthesis in Sol High.
+- Delegate bounded discovery, draft planning and architecture analysis, implementation, test and check execution, and review. The host resolves conflicts and freezes decisions from worker evidence.
+- Escalate orchestration to Sol xhigh when High proves insufficient. Reserve Max for exceptional work.
 - Use Sol Medium for clear-spec implementation and Sol High for hard implementation.
 - Use Luna xhigh for quick repository context, reading, and search; escalate to Sol High when the result is inadequate.
 - Use Luna low/medium for lightweight chat, organization, and tiny computer or file actions.
@@ -25,4 +26,4 @@ If custom roles are unavailable, invoke a fresh CLI worker with explicit model, 
 
 For Anthropic minions, read `codex-calls-claude.md` and use `claude -p` with explicit model, effort, and permission mode. Give implementation workers only the permissions and ownership they require. Keep scouts and verifiers read-only.
 
-Never select Ultra. Keep agent nesting at depth 1 unless the user deliberately requests recursive delegation. Keep fast mode off by default. Keep git commits, pushes, releases, and other irreversible actions in the host unless the user explicitly assigns them elsewhere.
+The host may execute a unit directly only when it is truly atomic and dispatch overhead would exceed execution, required tools, authority, or conversation context cannot be delegated safely, or the retry and escalation policy has been exhausted. Record the reason in the routing ledger. Never select Ultra. Keep agent nesting at depth 1 unless the user deliberately requests recursive delegation. Keep fast mode off by default. Keep git commits, pushes, releases, and other irreversible actions in the host unless the user explicitly assigns them elsewhere. Validate worker evidence before making the final claim.

@@ -20,7 +20,7 @@ Copy them into `~/.claude/agents/` for personal roles or `.claude/agents/` for p
 
 ## Permission boundary
 
-The parent permission context can take precedence. In particular, a parent using `acceptEdits`, `auto`, or `bypassPermissions` may limit whether a child permission mode changes behavior. Treat tool allowlists as the primary capability boundary and keep the host responsible for git mutations and final verification.
+The parent permission context can take precedence. In particular, a parent using `acceptEdits`, `auto`, or `bypassPermissions` may limit whether a child permission mode changes behavior. Treat tool allowlists as the primary capability boundary and keep the host responsible for git mutations and final evidence validation.
 
 ## Safe setup flow
 
@@ -30,4 +30,4 @@ The parent permission context can take precedence. In particular, a parent using
 4. Write only after the user approves the preview.
 5. Restart Claude Code or open a new session after direct file edits so the roles load.
 
-Keep the routing policy in this skill or an applicable `CLAUDE.md`. The agent files encode only the Claude-specific role implementation.
+Keep the routing policy in this skill or an applicable `CLAUDE.md`. That policy should make the host a thin control plane, proactively delegate bounded discovery, draft planning, implementation, checks, and review, and require a justification for direct work. The agent files encode only the Claude-specific role implementation.

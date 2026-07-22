@@ -5,7 +5,7 @@ Use this reference to explain owner preferences, not as an authoritative benchma
 ## Stable conclusions used by the router
 
 - Avoid Ultra for quota-sensitive orchestration. Public docs confirm that it enables proactive delegation and that each subagent consumes its own tokens.
-- Use Sol High for the default orchestrator. Escalate to xhigh for genuinely difficult planning before reaching for Max.
+- Use Sol High for the default orchestrator. Escalate to xhigh for genuinely difficult routing or evidence integration before reaching for Max; delegate planning drafts to a worker.
 - Use Sol Medium for a worker following a frozen plan.
 - Use Sol High for difficult debugging, architecture, security, or high-risk work.
 - Use Luna xhigh for bounded read-only exploration. This is the owner's correction after testing; it replaces the earlier Terra High preference.
