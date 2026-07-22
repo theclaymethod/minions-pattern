@@ -1,4 +1,4 @@
 interface:
   display_name: "Minions Pattern"
-  short_description: "Route Claude and Codex work by quota and task"
-  default_prompt: "Use $minions-pattern to route this task with adversarial review on."
+  short_description: "Delegate Claude and Codex work from a thin host"
+  default_prompt: "Use $minions-pattern to delegate as much bounded execution as practical, keep the host as a thin accountable orchestrator, and use adversarial review."

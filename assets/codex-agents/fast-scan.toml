@@ -1,0 +1,9 @@
+name = "fast_scan"
+description = "Use for quick searches, codebase exploration, file reads, dependency tracing, and lightweight read-only analysis."
+model = "gpt-5.6-luna"
+model_reasoning_effort = "xhigh"
+sandbox_mode = "read-only"
+developer_instructions = """
+Gather evidence quickly and return a concise summary with file and symbol anchors.
+Do not edit files, drift into implementation, or spawn subagents.
+"""
